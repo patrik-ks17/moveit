@@ -1,0 +1,35 @@
+.back-sports-page {
+  background-image: url("/public/img/sports-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.back-sports-page > div {
+  backdrop-filter: blur(10px);
+  align-items: center;
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-y: hiden;
+}
+
+.sports-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.sports-page h1{
+  margin-bottom: 0.2rem;
+	margin-top: 3rem;
+}
+
+.sports-grid > div > img {
+  width: auto;
+  min-height: 6rem;
+}

@@ -1,0 +1,69 @@
+.marker-panel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  ),
+  linear-gradient(
+    90.24deg,
+    #ffffff71 10.75%,
+    rgba(71, 85, 93, 0.517) 29.39%,
+    rgba(76, 90, 86, 0.582) 49.19%,
+    rgba(123, 136, 132, 0.562) 71.57%,
+    rgba(143, 166, 149, 0.588) 94.38%
+  );
+
+  border: 1px solid;
+  border-image: linear-gradient(
+    90.24deg,
+    rgba(255, 255, 255, 0.664) 11.75%,
+    rgba(71, 85, 93, 0.28) 29.39%,
+    rgba(76, 90, 86, 0.52) 49.19%,
+    rgba(123, 136, 132, 0.67) 71.57%,
+    rgba(123, 134, 115, 0.87) 94.38%
+  ) 1;
+  justify-content: center;
+  font-size: 0.9rem;
+  height: fit-content;
+  border-radius: 10px;
+}
+
+#markerform {
+	width: 85%;
+	margin: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#markerform > span {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+#markerform > input[type="text"] {
+  background-color: #e5e5e5;
+  width: 60%;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  padding: 0.1rem;
+  padding-left: 0.4rem;
+}
+
+.timepicker {
+  background-color: #e5e5e5;
+  border-radius: 10px;
+}
+
+#markerform > button {
+  display: block;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 0.1rem 0.5rem;
+  margin-top: 0.8rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+#markerform > button:hover {
+  cursor: pointer;
+}

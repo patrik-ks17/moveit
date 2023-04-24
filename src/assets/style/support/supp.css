@@ -1,0 +1,96 @@
+.back-support-page {
+  background-image: url("/public/img/support-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+}
+
+.back-support-page > div {
+  backdrop-filter: blur(10px);
+  align-items: center;
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  flex-direction: column;
+  overflow-y: hiden;
+}
+
+.suport-page {
+  min-height: 100vh;
+  height: auto;
+}
+
+.support-page > h1 {
+  margin-top: 3rem;
+}
+
+.send-email {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.4) 100%
+    ),
+    linear-gradient(
+      90.24deg,
+      #ffffff71 10.75%,
+      rgba(71, 85, 93, 0.517) 29.39%,
+      rgba(76, 90, 86, 0.582) 49.19%,
+      rgba(123, 136, 132, 0.562) 71.57%,
+      rgba(143, 166, 149, 0.588) 94.38%
+    );
+  border: 1px solid;
+  border-image: linear-gradient(
+      90.24deg,
+      rgba(255, 255, 255, 0.664) 11.75%,
+      rgba(71, 85, 93, 0.28) 29.39%,
+      rgba(76, 90, 86, 0.52) 49.19%,
+      rgba(123, 136, 132, 0.67) 71.57%,
+      rgba(123, 134, 115, 0.87) 94.38%
+    )
+    1;
+  border-radius: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 1rem;
+}
+
+.email-form textarea,
+.email-form input[type="text"], .email-form input[type="email"] {
+  resize: none;
+  background-color: #e5e5e5;
+  max-width: 100%;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  border-radius: 10px;
+  min-width: 11rem;
+  padding:  0.1rem;
+}
+
+.email-form .submit-btn {
+	background: linear-gradient(
+    90.93deg,
+    rgba(255, 255, 255, 0.914) 0%,
+    rgba(255, 255, 255, 0.907) 100%
+  );
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: fit-content;
+  margin: auto;
+  color: black;
+}
+.email-form .submit-btn:hover {
+	cursor: pointer;
+	font-style: italic;
+}

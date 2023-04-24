@@ -1,0 +1,39 @@
+.back-home-page {
+  background-image: url("/public/img/home-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.back-home-page >div {
+  backdrop-filter: blur(10px);
+  width: 100vw;
+  height: 100vh;
+}
+
+.home-page {
+  justify-content: center;
+  display: grid;
+}
+
+.home-page > h1 {
+  margin-top: 2rem;
+}
+
+.welcome {
+  background-color: rgba(0, 0, 0, 0.507);
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: whitesmoke;
+  padding: 1rem 2rem;
+}
+
+.welcome ul {
+  list-style-type:circle;
+  text-align: left;
+  text-shadow: 0.1rem 0.07rem black;
+}

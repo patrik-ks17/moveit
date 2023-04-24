@@ -1,0 +1,91 @@
+.user-panel {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.4) 100%
+    ),
+    linear-gradient(
+      90.24deg,
+      #5b5b5b 11.75%,
+      rgba(71, 85, 93, 0.28) 29.39%,
+      rgba(76, 90, 86, 0.42) 49.19%,
+      rgba(123, 136, 132, 0.485) 71.57%,
+      rgba(79, 94, 67, 0.511) 94.38%
+    );
+  border: 1px solid;
+  border-image-source: linear-gradient(
+    90.24deg,
+    #ffffff 11.75%,
+    rgba(71, 85, 93, 0.28) 29.39%,
+    rgba(76, 90, 86, 0.52) 49.19%,
+    rgba(123, 136, 132, 0.67) 71.57%,
+    rgba(79, 94, 67, 0.87) 94.38%
+  );
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.btn-mymarker {
+  top: 0.5rem;
+  z-index: 5;
+  padding-bottom: 0.2rem;
+}
+.btn-mymarker button {
+  margin: auto;
+  margin-bottom: 0.2rem;
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.users-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.users-list > div {
+  font-size: 0.7rem;
+  margin: auto;
+}
+.users-list div > ul {
+  padding: 1rem;
+}
+
+.user-box {
+  color: whitesmoke;
+  border: 2px solid #000;
+  background-color: rgb(98, 98, 98);
+  margin: 0.7rem;
+  border-radius: 10px;
+}
+.user-box > p {
+  margin-top: 0.7rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  text-decoration: underline;
+  text-decoration-color: #000;
+}
+.user-box > p:hover {
+  transform: scale(1.5);
+  transition-delay: 1ms;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.user-box > ul {
+  list-style-type: none;
+}
+.user-box li {
+  border-bottom: 1px solid #000;
+}
+.listed-marker span {
+  display: block;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+.listed-marker:hover {
+  transform: scale(1.15);
+  font-style: italic;
+  cursor: pointer;
+}

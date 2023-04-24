@@ -1,0 +1,39 @@
+.navbar {
+	border-radius: 10px;
+	border: 1px solid black;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 0.7rem;
+	margin-bottom: 4rem;
+	width: fit-content;
+}
+
+.center {
+	justify-content: center;
+	display: flex;
+}
+
+.navbar ul {
+	list-style-type: none;
+	display: flex;
+	margin: 0;	
+	padding: 0;
+}
+
+.navbar > ul > li:first-child { 
+	margin-left: 0;
+}
+
+.navbar ul li { 
+	margin-left: 2rem;
+	padding: 0.2rem;
+}
+.navbar ul li:hover {
+	cursor: pointer;
+	transform: scale(1.5);
+	transition-duration: 1.5s;
+}
+
+img {
+	width: 1.5rem;
+	height: 1.5rem;
+}

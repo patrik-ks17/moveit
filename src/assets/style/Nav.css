@@ -1,0 +1,21 @@
+.nav {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid black;
+  position: absolute;
+  top: 0;
+  width: 3.7rem;
+  height: 2.2rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  z-index: 10;
+}
+
+.nav > img {
+  margin: auto;
+  margin-top: 0.2rem;
+}
+
+.nav > img:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition-duration: 1.5s;
+}

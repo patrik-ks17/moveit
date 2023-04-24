@@ -1,0 +1,86 @@
+.profile-edit {
+  background: linear-gradient(
+      180deg,
+      rgba(83, 83, 83, 0.16) 0%,
+      rgba(96, 96, 96, 0.4) 100%
+    ),
+    linear-gradient(
+      90.24deg,
+      rgba(113, 113, 113, 0.443) 10.75%,
+      rgba(102, 107, 110, 0.517) 29.39%,
+      rgba(125, 142, 137, 0.582) 49.19%,
+      rgba(121, 120, 120, 0.562) 71.57%,
+      rgba(79, 79, 79, 0.588) 94.38%
+    );
+  border: 1px solid;
+  border-image: linear-gradient(
+      90.24deg,
+      rgba(255, 255, 255, 0.664) 11.75%,
+      rgba(71, 85, 93, 0.28) 29.39%,
+      rgba(76, 90, 86, 0.52) 49.19%,
+      rgba(123, 136, 132, 0.67) 71.57%,
+      rgba(123, 134, 115, 0.87) 94.38%
+    )
+    1;
+  border-radius: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+}
+
+.profile-edit > div,	
+.edit-profile-form,
+.edit-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.profile-edit > div > h1 {
+	margin-top: 1rem;
+}
+
+.edit-profile-form {
+	width: 100%;
+}
+.edit-profile-form input[type="text"], .edit-profile-form textarea { 
+	background-color: #e5e5e5;
+  max-width: 100%;
+	margin-bottom: 0.7rem;
+	text-align: center;
+	border-radius: 10px;
+  resize: none;
+}
+.edit-profile-form .submit-btn {
+	background: linear-gradient(
+    90.93deg,
+    rgba(255, 255, 255, 0.914) 0%,
+    rgba(255, 255, 255, 0.907) 100%
+  );
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: fit-content;
+  margin: auto;
+  color: black;
+  margin-bottom: 1rem;
+}
+.edit-profile-form .submit-btn:hover {
+	cursor: pointer;
+	font-style: italic;
+}
+
+.edit-social {
+	border: 2px solid rgba(255, 255, 255, 0.49);
+	width: 70%;
+	margin-bottom: 1rem;
+}
+.edit-social h2 {
+	text-decoration: underline;
+}
+.edit-social input {
+	margin: 0!important;
+}
+.edit-social input:last-child {
+	margin-bottom: 1rem!important;
+}
