@@ -5,7 +5,7 @@ function Body() {
   return (
 	 <div className='sports-grid grid grid-cols-1 gap-2 w-screen md:grid-cols-3 md:w-8/12'>
 		<div className='m-auto'>
-			<img src="img/home-bg.jpg" />
+			<img src="img/home-bg.jpg" alt="" />
 			<h2>1</h2>
 		</div>
 		<div>

@@ -5,7 +5,7 @@ import "../assets/style/Nav.css"
 function Nav() {
 	const navigate = useNavigate();
   return (
-	 <div className='nav'><img src={`icon/home.png`} onClick={(e) =>{navigate('/')}}></img></div>
+	 <div className='nav'><img src={`icon/home.png`} alt="home page" onClick={(e) =>{navigate('/')}}></img></div>
   )
 }
 

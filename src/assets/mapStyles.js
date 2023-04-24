@@ -1,5 +1,4 @@
-
-export default [
+const mapStyle =  [
 	{
 		 "featureType": "landscape.man_made",
 		 "elementType": "geometry",
@@ -22,3 +21,5 @@ export default [
 		 ]
 	}
 ]
+
+export default mapStyle;

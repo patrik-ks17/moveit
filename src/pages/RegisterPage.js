@@ -15,7 +15,6 @@ function RegisterPage() {
     passagain: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
-  const [isSubmit, setIsSubmit] = useState(false);
   const [formErrors, setFormErrors] = useState({});
 
   const handleChange = (e) => {
@@ -32,7 +31,6 @@ function RegisterPage() {
   };
 
   function Submit() {
-    setIsSubmit(true);
     fetch(`${process.env.REACT_APP_IP}/register`, {
       method: "POST",
       crossDomain: true,

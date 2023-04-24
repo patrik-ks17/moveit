@@ -44,7 +44,7 @@ function ProfileEditing() {
   return (
 	 <div className="profile-edit">
     <div>
-      <img src="icon/func/exit.png" className="edit-btn" onClick={() => setIsEditing(false)}></img>
+      <img src="icon/func/exit.png" alt="exit button" className="edit-btn" onClick={() => setIsEditing(false)}></img>
       <h1>Profil Szerkesztés</h1>
       <form 
         className='edit-profile-form' 

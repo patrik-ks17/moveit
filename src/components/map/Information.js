@@ -7,35 +7,35 @@ import { useAlert } from "react-alert";
 
 export default function Information() {
 	const { showingInfo, setShowingInfo, selected, setSelected, markers, DeleteMarker, markerPending, setMarkerPending, loggedUser, setFetch } = useContext(MapContext);
-	alert = useAlert()
+	const alert = useAlert()
 	const { myMarker } = IsMyMarker();
 
 	function IsMyMarker() {
 		let myMarker = false;
 		let marker = "";
 		let index = -1;
-		markers.map((marker, index) => {
+		markers.map((marker_val, i) => {
 			if (
-				JSON.stringify(marker) === JSON.stringify(selected) &&
+				JSON.stringify(marker_val) === JSON.stringify(selected) &&
 				loggedUser !== undefined
 			) {
 				loggedUser.markers.map((usermarker) => {
 					if (JSON.stringify(usermarker) === JSON.stringify(selected)) {
 						myMarker = true;
-						marker = marker;
-						index = index;
+						marker = marker_val;
+						index = i;
 					}
 				});
 			}
 		});
 		return { myMarker, marker, index };
 	}
-	
+
 	function lc_removeMarker() {
 		const { myMarker, marker, index } = IsMyMarker({ markers, selected, loggedUser });
 		if (myMarker) {
 			markers.splice(index, 1);
-		 	DeleteMarker({selected, alert});
+			DeleteMarker({ selected, alert });
 			setSelected({});
 			if (JSON.stringify(marker) === JSON.stringify(markerPending)) {
 				setMarkerPending({});

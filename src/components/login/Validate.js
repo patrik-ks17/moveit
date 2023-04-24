@@ -1,6 +1,6 @@
 export default function Validate(values) { 
 	const errors = {};
-	const email_reg = /^[0-9a-z\.-]+@([0-9a-z-]+\.)+[a-z]{2,4}$/i;
+	const email_reg = /[a-z0-9]+@(?:[a-z0-9]+\.)+[a-z]+$/i;
 	const pass_reg = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/;
 	if (!values.username) {
 	  errors.username = "Felhasználónév kötelező!"
