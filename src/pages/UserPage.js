@@ -16,7 +16,7 @@ function UserPage() {
 
   useEffect(() => {
     FetchProfile({setProfileInfo, alert})
-  }, [isEditing])
+  }, [isEditing, alert])
 
   return (
     <div className="back-profile-page">

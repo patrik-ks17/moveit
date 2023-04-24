@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MapPage from "./pages/MapPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import UserPage from "./pages/UserPage";
-import AdminPage from "./pages/AdminPage";
-import SportsPage from './pages/SportsPage';
-import SupportPage from './pages/SupportPage';
-import PageError from './pages/PageError';
+import PageNotFound from './pages/PageNotFound';
+const AdminPage = React.lazy(() => import("./pages/AdminPage"))
+const SportsPage = React.lazy(() => import("./pages/SportsPage"))
+const MapPage = React.lazy(() => import("./pages/MapPage"))
+const SupportPage = React.lazy(() => import("./pages/SupportPage"))
+
 
 
 function App() {
@@ -54,7 +55,9 @@ function App() {
           <Route path="/profile"
             element={
               (isLoggedIn !== "false" && userType === "user") ?
-                <UserPage />
+                <React.Suspense fallback={<p>Betöltés...</p>}>
+                  <UserPage />
+                </React.Suspense>
                 :
                 <HomePage />
             }
@@ -63,7 +66,10 @@ function App() {
             path="/admin"
             element={
               (isLoggedIn !== "false" && userType === "admin") ?
-                <AdminPage />
+                <React.Suspense fallback={<p>Betöltés...</p>}>
+                  <AdminPage />
+                </React.Suspense>
+
                 :
                 <HomePage />
             }
@@ -72,26 +78,35 @@ function App() {
           <Route
             path="/map"
             element={
-              (isLoggedIn !== "false" && userType !== "guest") ? 
-                <MapPage /> 
-                : 
+              (isLoggedIn !== "false" && userType !== "guest") ?
+              <React.Suspense fallback={<p>Betöltés...</p>}>
+                <MapPage />
+              </React.Suspense>
+                
+                :
                 <HomePage />
-            } 
+            }
           />
-          <Route 
-            path="/sport" 
+          <Route
+            path="/sport"
             element={
-              (isLoggedIn !== "false" && userType !== "guest") ? 
+              (isLoggedIn !== "false" && userType !== "guest") ?
+              <React.Suspense fallback={<p>Betöltés...</p>}>
                 <SportsPage />
-                : 
+              </React.Suspense>
+                :
                 <HomePage />
-            } 
+            }
           />
-          <Route 
-            path="/support" 
-            element={<SupportPage/>} 
+          <Route
+            path="/support"
+            element={
+              <React.Suspense fallback={<p>Betöltés...</p>}>
+                <SupportPage />
+              </React.Suspense>
+            }
           />
-          <Route path="*" element={<PageError/>} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

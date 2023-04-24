@@ -42,12 +42,12 @@ export default function MapPage() {
     FetchMarkers({ setMarkers, alert });
     FetchUsers({ setUsers, alert });
     setFetch(false);
-  }, [Fetch]);
+  }, [Fetch, alert]);
 
   useEffect(() => {
     FetchLoggedUser({ setLoggedUser, alert })
     setFetch(false);
-  }, [Fetch])
+  }, [Fetch, alert])
 
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {

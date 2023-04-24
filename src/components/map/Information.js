@@ -25,8 +25,10 @@ export default function Information() {
 						marker = marker_val;
 						index = i;
 					}
+					return null;
 				});
 			}
+			return null;
 		});
 		return { myMarker, marker, index };
 	}

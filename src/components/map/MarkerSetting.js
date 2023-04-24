@@ -22,6 +22,7 @@ function MarkerSetting() {
           markers[index].sport = sport;
           markers[index].time = timerange;
         }
+        return null;
       });
       await PushMarker({selected, alert});
       await setSelected({});

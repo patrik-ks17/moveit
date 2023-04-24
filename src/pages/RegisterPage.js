@@ -4,7 +4,6 @@ import { useAlert } from "react-alert";
 import Validate from "../components/login/Validate";
 import "../assets/style/login/Login.css";
 import Nav from "../components/Nav";
-import areIntervalsOverlappingWithOptions from "date-fns/esm/fp/areIntervalsOverlappingWithOptions/index.js";
 
 function RegisterPage() {
   const alert = useAlert();

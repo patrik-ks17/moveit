@@ -15,7 +15,7 @@ function Admin() {
   useEffect(() => {
     FetchUsers({setUsers, alert})
     setIsPending(false)
-  }, [isPending])
+  }, [isPending, alert])
 
   function handleClick(e) {
     e.preventDefault()
