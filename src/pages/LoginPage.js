@@ -4,7 +4,7 @@ import { useAlert } from "react-alert";
 import "../assets/style/login/Login.css";
 import Nav from "../components/Nav";
 
-function LoginPage() {
+function LoginPage({ setIsLoggedIn, setUserType }) {
   const alert = useAlert();
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({ user: "", password: "" });
@@ -14,9 +14,9 @@ function LoginPage() {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_IP}/login`, {
+    const response = await fetch(`${process.env.REACT_APP_IP}/login`, {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -29,18 +29,26 @@ function LoginPage() {
         password: formValues.password,
       }),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "ok") {
-          window.localStorage.setItem("token", data.data.token);
-          window.localStorage.setItem("loggedIn", data.data.email);
-          window.localStorage.setItem("userType", data.data.usertype);
-          alert.success("Sikeres bejelentkezés!");
-          setTimeout(() => navigate("/home"), 2000);
-        } else {
-          alert.error("Sikertelen bejelentkezés!");
-        }
-      });
+    if (!response.ok) {
+      alert.error("Sikertelen bejelentkezés");
+      return;
+    }
+    const json = await response.json();
+    if (json.status === "ok") {
+      window.localStorage.setItem("token", json.data.token);
+      window.localStorage.setItem("loggedIn", json.data.email);
+      window.localStorage.setItem("userType", json.data.usertype);
+      setIsLoggedIn(localStorage.getItem("loggedIn"));
+      setUserType(localStorage.getItem("userType"));
+      alert.success("Sikeres bejelentkezés!");
+      setTimeout(() => navigate("/home"), 2000);
+    } else if (json.error === "User not found") {
+      alert.error("Nem regisztrált felhasználó!");
+    } else if (json.error === "Invalid password") {
+      alert.error("Hibás jelszó!")
+    } else {
+      alert.error(json.error)
+    }
   };
 
   return (
@@ -72,7 +80,7 @@ function LoginPage() {
             <span href="" className="link-btn" onClick={() => navigate("/register")}>
               Nincs még fiókom.
             </span>
-            <input className="login-btn" type="submit" value={"Belépés"}/>
+            <input className="login-btn" type="submit" value={"Belépés"} />
           </form>
         </div>
       </div>

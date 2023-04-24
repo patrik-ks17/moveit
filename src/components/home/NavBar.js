@@ -9,38 +9,24 @@ function NavBar() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
   const userType = window.localStorage.getItem("userType");
 
-
-
   function handleClick(element) {
-    const page = element.target.getAttribute("data-name");
-    if ((page === "login" || page === "support") && isLoggedIn === null) {
+    const page = element.target.getAttribute("data-name")
+    if (!["support", "login"].includes(page) && isLoggedIn === "false") {
+      alert.info("Először jelentkezzen be!")
+    }
+    else if (page === "admin" && (isLoggedIn === "false" || userType === "user")) {
+      alert.info("Nincs jogosultsága az oldalhoz!")
+    }
+    else {
       navigate("/" + page)
-    }
-    if (isLoggedIn !== "false" && userType === "admin") {
-      navigate("/" + page)
-    }
-    if (isLoggedIn !== "false" && userType === "user") {
-      if (page !== "admin") {
-        navigate("/" + page)
-      } else {
-        alert.info("Nincs jogosultsága az oldalhoz!")
-      }
-    }
-    if (page !== "support" && isLoggedIn === "false") {
-      if (page === "login") {
-        navigate("/" + page)
-      } else {
-        alert.info("Először jelentkezzen be!")
-      }
     }
   }
-
 
   return (
     <div className="navbar">
       <ul>
         <li>
-          {(isLoggedIn === null || isLoggedIn === "false") ?
+          {isLoggedIn === "false" ?
             <img
               data-name={"login"}
               src="icon/navbar/login.png"
@@ -93,7 +79,7 @@ function NavBar() {
             onClick={(e) => handleClick(e)}
           ></img>
         </li>
-        {(isLoggedIn !== null && isLoggedIn !== "false") &&
+        {isLoggedIn !== "false" &&
           <li>
             <img
               src="icon/navbar/logout.png"

@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MapPage from "./pages/MapPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -8,59 +8,90 @@ import UserPage from "./pages/UserPage";
 import AdminPage from "./pages/AdminPage";
 import SportsPage from './pages/SportsPage';
 import SupportPage from './pages/SupportPage';
-
+import PageError from './pages/PageError';
 
 
 function App() {
-  const isLoggedIn = window.localStorage.getItem("loggedIn");
-  const userType = window.localStorage.getItem("userType");
- 
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("loggedIn"))
+  const [userType, setUserType] = useState(localStorage.getItem("userType"))
+
+  useEffect(() => {
+    if (isLoggedIn === null) {
+      localStorage.setItem("loggedIn", "false")
+      setIsLoggedIn(localStorage.getItem("loggedIn"))
+    }
+    if (userType === null) {
+      localStorage.setItem("userType", "guest")
+      setUserType(localStorage.getItem("userType"))
+    }
+  }, [isLoggedIn, userType])
+
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route
             path="/login"
             element={
-              (isLoggedIn === "false" || isLoggedIn === null) ? 
-              <LoginPage /> 
-              : 
-              <HomePage />
+              isLoggedIn === "false" ?
+                <LoginPage setIsLoggedIn={setIsLoggedIn} setUserType={setUserType} />
+                :
+                <HomePage />
             }
           />
           <Route
             path="/register"
             element={
-              (isLoggedIn === "false" || isLoggedIn === null) ? 
-              <RegisterPage /> 
-              : 
-              <HomePage />
+              isLoggedIn === "false" ?
+                <RegisterPage />
+                :
+                <HomePage />
             }
           />
-          <Route path="/profile" 
+          <Route path="/profile"
             element={
-              isLoggedIn !== "false" ? 
-              <UserPage /> 
-              :
-              <HomePage />
-            } 
+              (isLoggedIn !== "false" && userType === "user") ?
+                <UserPage />
+                :
+                <HomePage />
+            }
           />
           <Route
             path="/admin"
             element={
-              userType === "admin" ? (
+              (isLoggedIn !== "false" && userType === "admin") ?
                 <AdminPage />
-              ) : (
+                :
                 <HomePage />
-              )
             }
           />
           {/* <Route path="/chat" element={<ChatPage />} /> */}
-          <Route path="/map" element={<MapPage />} />
-          <Route path="/sport" element={<SportsPage />} />
-          <Route path="/support" element={<SupportPage />} />
-          <Route path="*" element={<Navigate to="/home" />} />
+          <Route
+            path="/map"
+            element={
+              (isLoggedIn !== "false" && userType !== "guest") ? 
+                <MapPage /> 
+                : 
+                <HomePage />
+            } 
+          />
+          <Route 
+            path="/sport" 
+            element={
+              (isLoggedIn !== "false" && userType !== "guest") ? 
+                <SportsPage />
+                : 
+                <HomePage />
+            } 
+          />
+          <Route 
+            path="/support" 
+            element={<SupportPage/>} 
+          />
+          <Route path="*" element={<PageError/>} />
         </Routes>
       </BrowserRouter>
     </div>
