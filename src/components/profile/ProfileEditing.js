@@ -1,15 +1,13 @@
 import React,  { useRef, useContext } from 'react'
 import EditProfile from "../../services/EditProfile"
-import { UserContext } from '../../context/Context';
+import { HookContext, UserContext } from '../../context/Context';
 import { useForm } from 'react-hook-form';
-import { useAlert } from 'react-alert';
-
 
 
 function ProfileEditing() {
   const {profileInfo, setIsEditing} = useContext(UserContext);
   const {register, handleSubmit} = useForm();
-  const alert = useAlert()
+  const {alert} = useContext(HookContext)
 
   const onSubmit = async(data) => { 
     const newProfileInfo = {

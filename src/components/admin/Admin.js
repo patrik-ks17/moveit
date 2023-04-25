@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useAlert } from 'react-alert';
 import FetchUsers from '../../services/FetchUsers';
 import {AddAdmin, RemoveAdmin, EditingUser, DeletingUser} from './Functions';
-import { AdminContext } from './../../context/Context';
+import { AdminContext, HookContext } from './../../context/Context';
 import ManageUser from './ManageUser';
 
 function Admin() {
-  const alert = useAlert()
+  const {alert} = useContext(HookContext)
   const [Users, setUsers] = useState()
   const [Editing, setIsEditing] = useState('')
   const [editedData, setEditedData] = useState(null)

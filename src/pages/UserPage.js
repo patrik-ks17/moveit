@@ -5,12 +5,11 @@ import Profile from "../components/profile/Profile"
 import Nav from '../components/Nav';
 import FetchProfile from "../services/FetchProfile"
 import ProfileEditing from '../components/profile/ProfileEditing';
-import { UserContext } from "../context/Context";
-import { useAlert } from "react-alert";
+import { HookContext, UserContext } from "../context/Context";
+
 
 function UserPage() {
-  const alert = useAlert();
-  
+  const {alert} = useContext(HookContext);
   const [profileInfo, setProfileInfo] = useState(null);
   const [isEditing, setIsEditing] = useState(false)
 

@@ -1,11 +1,11 @@
-import React from "react";
-import { useAlert } from "react-alert";
-import { useNavigate } from "react-router-dom";
+import React, {useContext} from "react";
 import Logout from "./../login/Logout";
+import { HookContext } from "../../context/Context";
+
 
 function NavBar() {
-  const navigate = useNavigate();
-  const alert = useAlert();
+  const {alert, navigate} = useContext(HookContext);
+  
   const isLoggedIn = window.localStorage.getItem("loggedIn");
   const userType = window.localStorage.getItem("userType");
 

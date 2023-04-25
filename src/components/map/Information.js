@@ -1,13 +1,12 @@
 import { InfoWindowF } from "@react-google-maps/api";
 import { useContext } from "react";
 import ToChatGroup from "../chat/ToChatGroup";
-import { MapContext } from "../../context/Context";
-import { useAlert } from "react-alert";
+import { HookContext, MapContext } from "../../context/Context";
 
 
 export default function Information() {
 	const { showingInfo, setShowingInfo, selected, setSelected, markers, DeleteMarker, markerPending, setMarkerPending, loggedUser, setFetch } = useContext(MapContext);
-	const alert = useAlert()
+	const {alert} = useContext(HookContext)
 	const { myMarker } = IsMyMarker();
 
 	function IsMyMarker() {

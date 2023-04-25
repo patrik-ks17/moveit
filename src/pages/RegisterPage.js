@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
 import Validate from "../components/login/Validate";
 import "../assets/style/login/Login.css";
 import Nav from "../components/Nav";
+import { HookContext } from "../context/Context";
 
 function RegisterPage() {
-  const alert = useAlert();
-  const navigate = useNavigate();
   const initialValues = {
     username: "",
     email: "",
     password: "",
     passagain: "",
   };
+  const {alert, navigate} = useContext(HookContext);
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
 

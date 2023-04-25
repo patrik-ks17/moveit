@@ -1,10 +1,9 @@
 import mapStyles from "../../assets/mapStyles";
 import { useContext } from "react";
-import { useAlert } from "react-alert";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import Search from "./Search";
 import Location from "./Location";
-import { MapContext } from "../../context/Context";
+import { HookContext, MapContext } from "../../context/Context";
 import Information from "./Information";
 
 const mapContainerStyle = {
@@ -27,7 +26,7 @@ const options = {
 };
 
 function Map() {
-  const alert = useAlert();
+  const {alert} = useContext(HookContext);
   const { panTo, setShowingInfo, markers, setMarkers, selected, setSelected, startTime, endTime, markerPending, setMarkerPending, onMapLoad, sport } = useContext(MapContext);
   const onMapClick = (event) => {
     if (Object.keys(markerPending).length === 0) {

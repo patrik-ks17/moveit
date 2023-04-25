@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HookContext } from "./context/Context";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -30,85 +31,85 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route
-            path="/login"
-            element={
-              isLoggedIn === "false" ?
-                <LoginPage setIsLoggedIn={setIsLoggedIn} setUserType={setUserType} />
-                :
-                <HomePage />
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              isLoggedIn === "false" ?
-                <RegisterPage />
-                :
-                <HomePage />
-            }
-          />
-          <Route path="/profile"
-            element={
-              (isLoggedIn !== "false" && userType === "user") ?
+      <HookContext.Provider value={{ alert, navigate }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route
+              path="/login"
+              element={
+                isLoggedIn === "false" ?
+                  <LoginPage setIsLoggedIn={setIsLoggedIn} setUserType={setUserType} />
+                  :
+                  <HomePage />
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                isLoggedIn === "false" ?
+                  <RegisterPage />
+                  :
+                  <HomePage />
+              }
+            />
+            <Route path="/profile"
+              element={
+                (isLoggedIn !== "false" && userType === "user") ?
+                  <React.Suspense fallback={<p>Betöltés...</p>}>
+                    <UserPage />
+                  </React.Suspense>
+                  :
+                  <HomePage />
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                (isLoggedIn !== "false" && userType === "admin") ?
+                  <React.Suspense fallback={<p>Betöltés...</p>}>
+                    <AdminPage />
+                  </React.Suspense>
+                  :
+                  <HomePage />
+              }
+            />
+            {/* <Route path="/chat" element={<ChatPage />} /> */}
+            <Route
+              path="/map"
+              element={
+                (isLoggedIn !== "false" && userType !== "guest") ?
+                  <React.Suspense fallback={<p>Betöltés...</p>}>
+                    <MapPage />
+                  </React.Suspense>
+                  :
+                  <HomePage />
+              }
+            />
+            <Route
+              path="/sport"
+              element={
+                (isLoggedIn !== "false" && userType !== "guest") ?
+                  <React.Suspense fallback={<p>Betöltés...</p>}>
+                    <SportsPage />
+                  </React.Suspense>
+                  :
+                  <HomePage />
+              }
+            />
+            <Route
+              path="/support"
+              element={
                 <React.Suspense fallback={<p>Betöltés...</p>}>
-                  <UserPage />
+                  <SupportPage />
                 </React.Suspense>
-                :
-                <HomePage />
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              (isLoggedIn !== "false" && userType === "admin") ?
-                <React.Suspense fallback={<p>Betöltés...</p>}>
-                  <AdminPage />
-                </React.Suspense>
-
-                :
-                <HomePage />
-            }
-          />
-          {/* <Route path="/chat" element={<ChatPage />} /> */}
-          <Route
-            path="/map"
-            element={
-              (isLoggedIn !== "false" && userType !== "guest") ?
-              <React.Suspense fallback={<p>Betöltés...</p>}>
-                <MapPage />
-              </React.Suspense>
-                
-                :
-                <HomePage />
-            }
-          />
-          <Route
-            path="/sport"
-            element={
-              (isLoggedIn !== "false" && userType !== "guest") ?
-              <React.Suspense fallback={<p>Betöltés...</p>}>
-                <SportsPage />
-              </React.Suspense>
-                :
-                <HomePage />
-            }
-          />
-          <Route
-            path="/support"
-            element={
-              <React.Suspense fallback={<p>Betöltés...</p>}>
-                <SupportPage />
-              </React.Suspense>
-            }
-          />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+              }
+            />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </HookContext.Provider>
     </div>
   );
 }

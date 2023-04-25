@@ -14,8 +14,8 @@ import FetchMarkers from "../services/FetchMarkers";
 import FetchUsers from "../services/FetchUsers";
 import FetchLoggedUser from "../services/FetchLoggedUser";
 import Nav from "../components/Nav";
-import { MapContext } from "../context/Context";
-import { useAlert } from "react-alert";
+import { HookContext, MapContext } from "../context/Context";
+
 
 const libraries = ["places"];
 
@@ -24,8 +24,7 @@ export default function MapPage() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
-  const alert = useAlert();
-
+  const {alert} = useContext(HookContext);
   const [loggedUser, setLoggedUser] = useState();
   const [users, setUsers] = useState([]);
   const [markers, setMarkers] = useState([{}]);

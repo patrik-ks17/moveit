@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
 import "../assets/style/login/Login.css";
 import Nav from "../components/Nav";
 
 function LoginPage({ setIsLoggedIn, setUserType }) {
-  const alert = useAlert();
-  const navigate = useNavigate();
+  const {alert, navigate} = useContext(HookContext);
   const [formValues, setFormValues] = useState({ user: "", password: "" });
 
   const handleChange = (e) => {
@@ -77,7 +74,7 @@ function LoginPage({ setIsLoggedIn, setUserType }) {
               name="password"
             ></input>
 
-            <span href="" className="link-btn" onClick={() => navigate("/register")}>
+            <span  className="link-btn" onClick={() => navigate("/register")}>
               Nincs még fiókom.
             </span>
             <input className="login-btn" type="submit" value={"Belépés"} />
