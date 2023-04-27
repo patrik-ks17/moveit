@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../assets/style/login/Login.css";
 import Nav from "../components/Nav";
+import { HookContext } from "../context/Context";
 
 function LoginPage({ setIsLoggedIn, setUserType }) {
   const {alert, navigate} = useContext(HookContext);
@@ -53,7 +54,7 @@ function LoginPage({ setIsLoggedIn, setUserType }) {
       <div>
         <Nav />
         <div className="login-page w-10/12 lg:w-3/12">
-          <form className="login-form p-5 md:p-0 md:pl-10 md:pr-10" onSubmit={handleSubmit}>
+          <form data-testid="login-form" className="login-form p-5 md:p-0 md:pl-10 md:pr-10" onSubmit={handleSubmit}>
             <h1>Belépés</h1>
             <label htmlFor="user">Felhasználónév/Email</label>
             <input
@@ -74,7 +75,7 @@ function LoginPage({ setIsLoggedIn, setUserType }) {
               name="password"
             ></input>
 
-            <span  className="link-btn" onClick={() => navigate("/register")}>
+            <span data-testid="navigate" className="link-btn" onClick={() => navigate("/register")}>
               Nincs még fiókom.
             </span>
             <input className="login-btn" type="submit" value={"Belépés"} />

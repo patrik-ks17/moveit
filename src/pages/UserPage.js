@@ -1,6 +1,6 @@
 import "../assets/style/profile/user.css"
 import "../assets/style/profile/useredit.css"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Profile from "../components/profile/Profile"
 import Nav from '../components/Nav';
 import FetchProfile from "../services/FetchProfile"

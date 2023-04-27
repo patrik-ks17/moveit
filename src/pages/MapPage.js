@@ -3,7 +3,7 @@ import "../assets/style/map/Functions.css";
 import "../assets/style/map/UserList.css";
 import "../assets/style/map/MapPage.css";
 import "../assets/style/map/MarkerSetting.css";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useContext } from "react";
 import { useLoadScript } from "@react-google-maps/api";
 import { format } from 'date-fns'
 import UserList from "../components/map/UserList";
@@ -24,7 +24,7 @@ export default function MapPage() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
-  const {alert} = useContext(HookContext);
+  const {alert, navigate} = useContext(HookContext);
   const [loggedUser, setLoggedUser] = useState();
   const [users, setUsers] = useState([]);
   const [markers, setMarkers] = useState([{}]);
@@ -79,7 +79,7 @@ export default function MapPage() {
               <Map />
               <div className="w-screen flex flex-col items-center lg:ml-24 lg:items-start lg:w-4/12">
                 <div id="rbtn" onChange={(e) => switchPanel(e)}>
-                  <input type="radio" id="rb1" name="rb" value="list" />
+                  <input type="radio" id="rb1" name="rb" value="list" defaultChecked />
                   <label htmlFor="rb1">Felh. lista</label>
                   <input type="radio" id="rb2" name="rb" value="marker" />
                   <label htmlFor="rb2">Jelölő</label>

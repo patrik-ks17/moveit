@@ -25,9 +25,9 @@ function AdminPage() {
   return (
     <div className='back-admin-page overflow-auto md:overflow-hidden'>
       <div className="overflow-auto">
-        <Nav />
+        <Nav/>
         <div id="rbtn" className="switch-panel" onChange={(e) => switchPanel(e)}>
-          <input type="radio" id="rb1" name="rb" value="admin" />
+          <input type="radio" id="rb1" name="rb" value="admin" defaultChecked/>
           <label htmlFor="rb1">Admin</label>
           <input type="radio" id="rb2" name="rb" value="profil" />
           <label htmlFor="rb2">Profil</label>

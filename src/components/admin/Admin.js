@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import FetchUsers from '../../services/FetchUsers';
 import {AddAdmin, RemoveAdmin, EditingUser, DeletingUser} from './Functions';
 import { AdminContext, HookContext } from './../../context/Context';
 import ManageUser from './ManageUser';
+
 
 function Admin() {
   const {alert} = useContext(HookContext)

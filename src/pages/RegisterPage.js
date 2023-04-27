@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Validate from "../components/login/Validate";
 import "../assets/style/login/Login.css";
 import Nav from "../components/Nav";
 import { HookContext } from "../context/Context";
+
 
 function RegisterPage() {
   const initialValues = {
@@ -63,7 +64,7 @@ return (
     <div>
       <Nav />
       <div className="reg-page w-10/12 lg:w-3/12">
-        <form className="register-form p-5 md:p-0 md:pl-10 md:pr-10" onSubmit={handleSubmit}>
+        <form data-testid="reg-form" className="register-form p-5 md:p-0 md:pl-10 md:pr-10" onSubmit={handleSubmit}>
           <h1>Regisztráció</h1>
           <label htmlFor="username">Felhasználónév</label>
           <input
@@ -106,7 +107,7 @@ return (
           ></input>
           <p>{formErrors.passagain}</p>
 
-          <span className="link-btn" onClick={() => navigate("/login")}>
+          <span data-testid="navigate" className="link-btn" onClick={() => navigate("/login")}>
             Van már fiókom.
           </span>
           <input className="reg-btn" type="submit" value={"Regisztráció"} />

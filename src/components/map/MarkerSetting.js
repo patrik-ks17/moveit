@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PushMarker from "../../services/PushMarker";
 import DateTimePicker from "react-datetime-picker";
 import { format } from 'date-fns'
-import { MapContext } from "../../context/Context";
+import { HookContext, MapContext } from "../../context/Context";
 
 function MarkerSetting() {
   const { markers, setMarkers, selected, setSelected, startTime, setStartTime, endTime, setEndTime, setMarkerPending, loggedUser, sport, setSport, setFetch } = useContext(MapContext)

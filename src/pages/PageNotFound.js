@@ -1,9 +1,9 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { HookContext } from './../context/Context';
 
 
 export default function PageError() {
-	const navigate = useNavigate()
+	const {navigate} = useContext(HookContext)
   return (
 	 <div>
 		<h1>Oldal nem található!</h1>
