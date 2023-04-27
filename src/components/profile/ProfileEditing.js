@@ -6,12 +6,11 @@ import { useForm } from 'react-hook-form';
 
 function ProfileEditing() {
   const {profileInfo, setIsEditing} = useContext(UserContext);
-  const {register, handleSubmit} = useForm();
   const {alert} = useContext(HookContext)
-
+  const {register, handleSubmit} = useForm()
   const onSubmit = async(data) => { 
     const newProfileInfo = {
-      profilePicture: profilePicture.current != null ? profilePicture.current : profileInfo.profilePicture,
+      profilePicture: profilePicture.current != null ? profilePicture.current : profileInfo?.profilePicture,
       nickname: data.nickname,
       profession: data.profession,
       info: data.info,
@@ -39,6 +38,7 @@ function ProfileEditing() {
     }
   }
   
+  if (profileInfo === undefined) return "Loading..."
   return (
 	 <div className="profile-edit">
     <div>
@@ -49,56 +49,64 @@ function ProfileEditing() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <label htmlFor="picture">Profilkép:</label>
-        <input type="file" name="picture" accept=".jpg,.jpeg,.png" onChange={covertToBase64}/>
+        <input type="file" id="picture" name="picture" accept=".jpg,.jpeg,.png" onChange={covertToBase64}/>
         <label htmlFor="nickname">Nickname:</label>
         <input type="text" 
+          id="nickname" 
           name="nickname" 
-          defaultValue={profileInfo.nickname} 
+          defaultValue={profileInfo?.nickname} 
           {...register("nickname")} 
         />
         <label htmlFor="prof">Foglalkozás:</label>
         <input type="text" 
+          id="prof" 
           name="prof" 
-          defaultValue={profileInfo.profession}
+          defaultValue={profileInfo?.profession}
           {...register("profession")}
         />
         <label htmlFor="info">Leírás:</label>
-        <textarea name="info" 
+        <textarea id="info" 
+          name="info" 
           cols="30" 
           rows="4" 
-          defaultValue={profileInfo.info}
+          defaultValue={profileInfo?.info}
           {...register("info")}
         ></textarea>
         <div className='edit-social'>
           <h2>Social média linkek</h2>
           <label htmlFor="tiktok">Tiktok:</label>
           <input type="text" 
+            id="tiktok" 
             name="tiktok" 
-            defaultValue={profileInfo.social['tiktok']}
+            defaultValue={profileInfo?.social['tiktok']}
             {...register("tiktok")}
           />
           <label htmlFor="twitter">Twitter:</label>
           <input type="text" 
+            id="twitter" 
             name="twitter" 
-            defaultValue={profileInfo.social['twitter']}
+            defaultValue={profileInfo?.social['twitter']}
             {...register("twitter")}
           />
           <label htmlFor="instagram">instagram:</label>
           <input type="text" 
+            id="instagram" 
             name="instagram" 
-            defaultValue={profileInfo.social['instagram']}
+            defaultValue={profileInfo?.social['instagram']}
             {...register("instagram")}
           />
           <label htmlFor="facebook">Facebook:</label>
           <input type="text" 
+            id="facebook" 
             name="facebook" 
-            defaultValue={profileInfo.social['facebook']}
+            defaultValue={profileInfo?.social['facebook']}
             {...register("facebook")}
           />
           <label htmlFor="linkedin">Likedin:</label>
           <input type="text" 
+            id="linkedin"
             name="linkedin" 
-            defaultValue={profileInfo.social['linkedin']}
+            defaultValue={profileInfo?.social['linkedin']}
             {...register("linkedin")}
           />
         </div>

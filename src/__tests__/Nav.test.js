@@ -1,15 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import '@testing-library/jest-dom'
 import Nav from "../components/Nav";
-import { MemoryRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 
 describe('Navigate to Home', () => {
 	test("check if click event works", () => {
 		render(
-			<MemoryRouter>
+			<BrowserRouter>
 				<Nav />
-			</MemoryRouter>
+			</BrowserRouter>
 		);
 		const icon = screen.getByRole('img')
 		const clickEvent = jest.fn();

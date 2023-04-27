@@ -1,10 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom'
 import RegisterPage from './../pages/RegisterPage';
+import { BrowserRouter } from "react-router-dom";
 
 describe('Register page', () => {
 	test("check if component rendered correctly", () => {
-		render(<RegisterPage />);
+		render(<BrowserRouter>
+		<RegisterPage />
+		</BrowserRouter>);
 		const form = screen.getByTestId("reg-form")
 		const inputElements = screen.getAllByRole("textbox")
 		const submit = screen.getByRole("button")
