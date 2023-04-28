@@ -1,11 +1,10 @@
 import { InfoWindowF } from "@react-google-maps/api";
 import { useContext } from "react";
-import ToChatGroup from "../chat/ToChatGroup";
 import { HookContext, MapContext } from "../../context/Context";
 
 
 export default function Information() {
-	const { showingInfo, setShowingInfo, selected, setSelected, markers, DeleteMarker, markerPending, setMarkerPending, loggedUser, setFetch } = useContext(MapContext);
+	const { showingInfo, setShowingInfo, selected, setSelected, markers, DeleteMarker, markerPending, setMarkerPending, loggedUser, setFetch, selectedUser } = useContext(MapContext);
 	const {alert} = useContext(HookContext)
 	const { myMarker } = IsMyMarker();
 
@@ -58,7 +57,7 @@ export default function Information() {
 					<h2>{selected.sport}</h2>
 					<p>{selected.time.start + " - " + selected.time.end}</p>
 					<div>
-						<button name={"chat"} onClick={ToChatGroup}>
+						<button name={"chat"} onClick={() => window.open(selectedUser, "_blank") }>
 							Chat
 						</button>
 						{myMarker && (

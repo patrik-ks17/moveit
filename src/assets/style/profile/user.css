@@ -131,3 +131,7 @@
   transform: scale(1.2);
   transition-duration: 1.5s;
 }
+
+.profile-details h1 {
+  font-size: medium;
+}

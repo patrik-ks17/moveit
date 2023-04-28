@@ -50,7 +50,7 @@ function NavBar() {
         <li>
           <img
             data-name={"chat"}
-            src="icon/navbar/firechat.png"
+            src="icon/navbar/chat.png"
             alt="chat"
             onClick={(e) => handleClick(e)}
           ></img>

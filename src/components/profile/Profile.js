@@ -58,6 +58,11 @@ function Profile() {
           </li>
         </ul>
       </div>
+    <h1>
+      Kérlek add meg a facebook oldalad linkjét,
+    </h1>
+    <h1>a profilodhoz csatolva.</h1>
+    <h1>Ezt használva tudsz majd a többiekkel kapcsolatba lépni.</h1>
     </div>
   );
 }

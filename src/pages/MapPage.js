@@ -36,6 +36,7 @@ export default function MapPage() {
   const [markerPending, setMarkerPending] = useState({});
   const [userlist_panel, setPanel] = useState(true);
   const [Fetch, setFetch] = useState(false);
+  const [selectedUser, setSelectedUser]  = useState("")
 
   useEffect(() => {
     FetchMarkers({ setMarkers, alert });
@@ -72,7 +73,7 @@ export default function MapPage() {
     <div className="back-map-page">
       <div>
         <Nav />
-        <MapContext.Provider value={{ loggedUser, users, setUsers, markers, setMarkers, selected, setSelected, startTime, setStartTime, endTime, setEndTime, showingInfo, setShowingInfo, markerPending, setMarkerPending, panTo, onMapLoad, DeleteMarker, sport, setSport, setFetch }}>
+        <MapContext.Provider value={{ loggedUser, users, setUsers, markers, setMarkers, selected, setSelected, startTime, setStartTime, endTime, setEndTime, showingInfo, setShowingInfo, markerPending, setMarkerPending, panTo, onMapLoad, DeleteMarker, sport, setSport, setFetch, setSelectedUser, selectedUser}}>
           <div className="map-page container">
             <h1>Térkép</h1>
             <div className="w-12/12 flex flex-col items-center lg:inline-flex lg:items-start lg:w-11/12 lg:flex-row">

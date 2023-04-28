@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { MapContext } from "../../context/Context";
 
 function UserList() {
-  const {users, loggedUser, setMarkers, panTo} = useContext(MapContext)
+  const {users, loggedUser, setMarkers, panTo, setSelectedUser} = useContext(MapContext)
   
   function panToMarker(lat, lng, zoom) {
     try {
@@ -55,6 +55,7 @@ function UserList() {
                           className="listed-marker"
                           key={index}
                           onClick={() => {
+                            setSelectedUser(user.profile.social.facebook)
                             setMarkers(user.markers);
                             panToMarker(marker.lat, marker.lng, 13);
                           }}

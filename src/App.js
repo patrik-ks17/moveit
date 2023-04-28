@@ -11,6 +11,7 @@ const AdminPage = React.lazy(() => import("./pages/AdminPage"))
 const SportsPage = React.lazy(() => import("./pages/SportsPage"))
 const MapPage = React.lazy(() => import("./pages/MapPage"))
 const SupportPage = React.lazy(() => import("./pages/SupportPage"))
+const ChatPage = React.lazy(() => import("./pages/ChatPage"))
 
 
 
@@ -78,7 +79,14 @@ function App() {
                 <HomePage />
             }
           />
-          {/* <Route path="/chat" element={<ChatPage />} /> */}
+          <Route path="/chat" element={
+            (isLoggedIn !== "false" && userType === "admin") ?
+              <React.Suspense fallback={<p>Betöltés...</p>}>
+                <ChatPage />
+              </React.Suspense>
+              :
+              <HomePage />
+          } />
           <Route
             path="/map"
             element={
