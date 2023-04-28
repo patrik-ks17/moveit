@@ -24,7 +24,7 @@ export default function MapPage() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
-  const {alert, navigate} = useContext(HookContext);
+  const {alert} = useContext(HookContext);
   const [loggedUser, setLoggedUser] = useState();
   const [users, setUsers] = useState([]);
   const [markers, setMarkers] = useState([{}]);
@@ -67,7 +67,7 @@ export default function MapPage() {
   }
 
   if (loadError) return "Térkép betöltése sikertelen!";
-  if (!isLoaded) return "Térkép betöltése....";
+  if (!isLoaded) return "Térkép betöltése...";
   return (
     <div className="back-map-page">
       <div>
@@ -78,7 +78,7 @@ export default function MapPage() {
             <div className="w-12/12 flex flex-col items-center lg:inline-flex lg:items-start lg:w-11/12 lg:flex-row">
               <Map />
               <div className="w-screen flex flex-col items-center lg:ml-24 lg:items-start lg:w-4/12">
-                <div id="rbtn" onChange={(e) => switchPanel(e)}>
+                <div data-testid="rbtn" id="rbtn" onChange={(e) => switchPanel(e)}>
                   <input type="radio" id="rb1" name="rb" value="list" defaultChecked />
                   <label htmlFor="rb1">Felh. lista</label>
                   <input type="radio" id="rb2" name="rb" value="marker" />

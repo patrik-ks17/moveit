@@ -38,13 +38,14 @@ function ProfileEditing() {
     }
   }
   
-  if (profileInfo === undefined) return "Loading..."
+  if (profileInfo === null) return "Loading..."
   return (
 	 <div className="profile-edit">
     <div>
       <img src="icon/func/exit.png" alt="exit button" className="edit-btn" onClick={() => setIsEditing(false)}></img>
       <h1>Profil Szerkesztés</h1>
       <form 
+        data-testid="editprofile-form"
         className='edit-profile-form' 
         onSubmit={handleSubmit(onSubmit)}
       >

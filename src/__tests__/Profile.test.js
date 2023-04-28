@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom'
 import Profile from "../components/profile/Profile";
 
-describe('', () => {
-	test("", () => {
+describe('Profile page', () => {
+	test("profile info are in the document", () => {
 		render(<Profile />);
 
 		const profileDiv = screen.getByTestId("profile-details")

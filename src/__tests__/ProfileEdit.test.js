@@ -4,15 +4,20 @@ import ProfileEditing from "../components/profile/ProfileEditing";
 
 
 describe('ProfileEditing', () => {
-	test("", () => {
-		const {result} = render(<ProfileEditing />);
-		console.log(result);
+	test("form elements are in the document", () => {
+		render(<ProfileEditing />);
 
-		const profileDiv = screen.getByTestId("profile-details")
-		const socialList = screen.getByRole("list")
+		const exButton = screen.getByAltText(/exit button/i)
+		const form = screen.getByTestId('editprofile-form')
+		const inputs = form.querySelectorAll('input');
+		const textbox = form.querySelector('textarea');
+		const submitButton = form.querySelector('input[type="submit"]');
 
-		expect(profileDiv).toBeInTheDocument();
-		expect(socialList).toBeInTheDocument();
-		expect(socialList.children).toHaveLength(5);
+		expect(exButton).toBeInTheDocument();
+		expect(form).toBeInTheDocument();
+		expect(inputs.length).toBe(9);
+		expect(textbox).toBeInTheDocument();
+		expect(submitButton).toBeInTheDocument();
 	})
+
 });
