@@ -11,7 +11,7 @@ function Body() {
         <br />
         <button>
           <a href="https://hu-hu.facebook.com/">
-            <img className="fb-icon" src="icon/social/facebook.png" alt="Tovább a facebookra" />
+            <img src="icon/social/facebook.png" alt="Tovább a facebookra" />
           </a>
         </button>
       </div>
