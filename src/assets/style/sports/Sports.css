@@ -1,35 +1,89 @@
-.back-sports-page {
-  background-image: url("/public/img/sports-bg.jpg");
-  background-repeat: no-repeat;
+.sport-page {
+  background-image: url('/public/img/stadion.jpg');
+  /* background-repeat: no-repeat; */
   background-size: cover;
-  width: 100vw;
-  min-height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.back-sports-page > div {
+.sport-page > div {
   backdrop-filter: blur(10px);
   align-items: center;
   display: flex;
   width: 100vw;
   min-height: 100vh;
+  height: auto;
   flex-direction: column;
   overflow-y: hiden;
 }
 
-.sports-page {
+@media all and (max-width:767px){
+  .kartya{
+    text-align: center;
+    align-items: center;
+    float: center;
+    display: grid;
+    grid-template-columns: repeat(1rem, 1fr);
+  }
+  .container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+  }
+
+  .sport-page {
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+  
+}
+.name{
+  text-align: center;
+  margin-top: 75px;
+  padding: 50px;
+}
+
+.sport-page h1{
+  margin: 3rem 0 3rem 0;
+}
+
+.image{
+  height: 300px;
+  width: 350px;
+  border-radius: 5px;
+}
+
+.kartya{
+   position: relative; 
+  display: block;
+  color: black;
+  float: left; 
+  border-radius: 1rem;
+  /* width: 200px;
+  height: 200px; */
+  text-align: center;
+  margin: 5px;
+  width: 400px;
+  height: 500px;
+  margin-bottom: 50px;
+  padding: 3rem;
+   /* overflow: hidden;  */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 100vw;
-  min-height: 100vh;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px); 
 }
 
-.sports-page h1{
-  margin-bottom: 0.2rem;
-	margin-top: 3rem;
-}
-
-.sports-grid > div > img {
-  width: auto;
-  min-height: 6rem;
+.button{
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: blue;
 }
