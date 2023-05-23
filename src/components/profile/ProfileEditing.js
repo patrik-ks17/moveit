@@ -103,7 +103,7 @@ function ProfileEditing() {
             defaultValue={profileInfo?.social['facebook']}
             {...register("facebook")}
           />
-          <label htmlFor="linkedin">Likedin:</label>
+          <label htmlFor="linkedin">Linkedin:</label>
           <input type="text" 
             id="linkedin"
             name="linkedin" 
