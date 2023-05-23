@@ -80,7 +80,7 @@ function App() {
             }
           />
           <Route path="/chat" element={
-            (isLoggedIn !== "false" && userType === "admin") ?
+            (isLoggedIn !== "false" && userType !== "guest") ?
               <React.Suspense fallback={<p>Betöltés...</p>}>
                 <ChatPage />
               </React.Suspense>

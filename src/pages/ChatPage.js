@@ -1,6 +1,6 @@
 import React from "react";
 
-function Body() {
+function ChatPage() {
   return (
     <div>
       <div className="w-8/12 m-auto">
@@ -19,4 +19,4 @@ function Body() {
   )
 }
 
-export default Body
+export default ChatPage
