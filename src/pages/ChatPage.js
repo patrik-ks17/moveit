@@ -3,7 +3,7 @@ import React from "react";
 function ChatPage() {
   return (
     <div>
-      <div className="w-8/12 m-auto">
+      <div className="w-8/12 m-auto text-dark">
         <h1>A saját csevegés applikációnk még kifejlesztés alatt áll...</h1>
         <br />
         <hr />
